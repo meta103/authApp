@@ -6,17 +6,17 @@ import { AuthService } from './auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardService implements CanActivate{
+export class AuthGuardService implements CanActivate {
 
   constructor(private auth: AuthService) { }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    console.log(next)
+    console.log(next);
     if (this.auth.isAuthenticated()) {
-      console.log("Estas loggeado");
+      console.log('Estas loggeado');
       return true;
     } else {
-      console.error("bloqueado por el guard");
+      console.error('bloqueado por el guard');
       return false;
     }
   }
